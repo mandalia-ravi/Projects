@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Registeration Form</title>
+        <link rel="stylesheet" type="text/css" href="register.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    </head>
+
+    <body>
+        <div class="form">
+            <img src="Photos/download.png" class="avatar">
+            <h1>Register Here</h1>
+            <form action="register.jsp" method = "post">
+                <p>First name:</p>
+                <input type="text" name="firstname" placeholder="Enter your first name..." required="" >
+                <p>Last name:</p>
+                <input type="text" name="lastname" placeholder="Enter your last name..." required="">
+                <p>Email:</p>
+                <input type="email" name="email" placeholder="Input your email..." required="">
+                <p>Phone Number:</p>
+                <input type="text" name="phoneNumber" placeholder="Enter your phone number..." required="">
+                <p>Password:</p>
+                <input type="password" name="password" placeholder="Enter your password..." required="">
+                <p>Age:</p>
+                <input type="text" name="age" placeholder="Enter your age..." required="">
+                <p>Gender:</p>
+                <input type="radio" name="gender" value="male" checked> Male
+                <input type="radio" name="gender" value="female"> Female
+                <input type="radio" name="gender" value="other"> Other
+                
+                <p>Profession:</p>
+                <select name="profession">
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+                <option value="workingProfessionals">Working Professionals</option>
+                <option value="others">Others</option>
+                </select><br><br>
+                
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </body>
+</html>
