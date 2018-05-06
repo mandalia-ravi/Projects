@@ -13,14 +13,14 @@ try{
 Class.forName("com.mysql.jdbc.Driver");
 con = DriverManager.getConnection(connurl, "root", "root123");
 Statement st=con.createStatement();
-ResultSet rs=st.executeQuery("select * from registration_table where password='"+currentPassword+"'");
+ResultSet rs=st.executeQuery("select * from registration_table where pwd='"+currentPassword+"'");
 while(rs.next()){
 fname=rs.getString(1);
 pass=rs.getString(5);
 } System.out.println(fname+ " "+pass);
 if(pass.equals(currentPassword)){
 Statement st1=con.createStatement();
-int i=st1.executeUpdate("update registration_table set password='"+Newpass+"' where firstname='"+fname+"'");
+int i=st1.executeUpdate("update registration_table set pwd='"+Newpass+"' where firstname='"+fname+"'");
 out.println("Password changed successfully");
 st1.close();
 con.close();
