@@ -14,7 +14,7 @@
 	String email = request.getParameter("email");
 	String pwd = request.getParameter("password");
 	
-	String sql = "select * from registration_table where email=? and password=?";
+	String sql = "select * from registration_table where email=? and pwd=?";
 	
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
