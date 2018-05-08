@@ -20,7 +20,7 @@ pass=rs.getString(5);
 } System.out.println(fname+ " "+pass);
 if(pass.equals(currentPassword)){
 Statement st1=con.createStatement();
-int i=st1.executeUpdate("update registration_table set pwd='"+Newpass+"' where firstname='"+fname+"'");
+int i=st1.executeUpdate("update registration_table set password='"+Newpass+"' where firstname='"+fname+"'");
 out.println("Password changed successfully");
 st1.close();
 con.close();

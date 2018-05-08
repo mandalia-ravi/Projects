@@ -1,45 +1,37 @@
-<%@page contentType="text/html"%>
+<%@ page language="java" contentType="text/html"%>
+<%@page import="java.sql.*, java.io.*, java.util.*, javax.servlet.*"%>
+<%@ include file="welcome.html"%> 
 
-<%@page import="java.io.*,java.util.*, javax.servlet.*"%>
-<%@page import="org.json.simple.JSONObject"%>
- <html>
+<%
+String fname = request.getParameter("firstname");
+String lname = request.getParameter("lastname");
+String email = request.getParameter("email");
+String phoneNo = request.getParameter("phoneNumber");
+String pwd = request.getParameter("password");
+int age = Integer.parseInt(request.getParameter("age"));
+String gender = request.getParameter("gender");
+String profession = request.getParameter("profession");
 
-<title> Welcome to the kingdom of Books</title>
 
-<body>
-    <h4> To display all the collection of books we have, take a tour of our KINGDOM OF BOOKS</h4>
-    < h4 id="welcomeSubmit">Go On</h4>
-</body>
-<script>
-$(document).getReady(function(e){
-   
-    $("#welcomeSubmit").click(function(e) {
-                    
-                    e.preventDefault();
-                    
-                    var url= "/status.jsp"
-                    
-                    $.ajax({
-                        Type: "GET",
-                        url: url,
-                        data: '',
-                        success: function(data){
-                            
-                            var response = JSON.parse(data);
-                            var redirectUrl = response.redirectUrl;
-                            window.location = redirectUrl;
-                        }
-                        
-                    });
-                
-                    
-                    
-    });
-                     
- });    
+Connection conn= null;
+
+String driverName = "com.mysql.jdbc.Driver";
+String url = "jdbc:mysql://localhost:3306/librarydb?autoReconnect=true&useSSL=false";
+String user = "root";
+String password = "root123";
      
-</script>
-    
-    
-    
-</html>
+   try
+{
+Class.forName("com.mysql.jdbc.Driver");
+conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/librarydb?autoReconnect=true&useSSL=false", "root", "root123");
+Statement st=conn.createStatement();
+
+int i=st.executeUpdate("insert into registration_table values('"+fname+"','"+lname+"','"+email+"','"+phoneNo+"','"+pwd+"','"+age+"','"+gender+"','"+profession+"')");
+out.println("Data is successfully inserted!");
+}
+catch(Exception e)
+{
+System.out.print(e);
+e.printStackTrace();
+}
+%>

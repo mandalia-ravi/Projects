@@ -2,15 +2,12 @@
 
 <%@ page import="java.sql.*" %>
 <%@page import="java.io.*,java.util.*, javax.servlet.*"%>
-<%@page import="org.json.simple.JSONObject"%>
-
-<%@include file="register.html" %>
 
 <%
 String fname = request.getParameter("firstname");
 String lname = request.getParameter("lastname");
 String email = request.getParameter("email");
-long phoneNo=Long.parseLong(request.getParameter("phoneNumber"));
+String phoneNo = request.getParameter("phoneNumber");
 String pwd = request.getParameter("password");
 int age = Integer.parseInt(request.getParameter("age"));
 String gender = request.getParameter("gender");
@@ -31,7 +28,12 @@ conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/librarydb?autoRe
 Statement st=conn.createStatement();
 
 int i=st.executeUpdate("insert into registration_table values('"+fname+"','"+lname+"','"+email+"','"+phoneNo+"','"+pwd+"','"+age+"','"+gender+"','"+profession+"')");
-out.println("Data is successfully inserted!");
+%>
+<html>
+    <h1>Please check your email for the verification link.</h1>
+    <a href="login.jsp">Click here to login!</a>
+</html>    
+<%
 }
 catch(Exception e)
 {
