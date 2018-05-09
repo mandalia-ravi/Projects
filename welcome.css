@@ -43,5 +43,6 @@ body {
     position:absolute;
     transition: .5s ease;
     top: 30%;
-    
+    display: flex;
+    justify-content: center;
 }

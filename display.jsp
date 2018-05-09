@@ -7,24 +7,38 @@
         <title>Book Details</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="display.css">
         <!-- Bootstrap CSS -->
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Oswald);
+        	.table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+    			border: 2px solid #66a6ff;
+				}
+            #myThead {
+                font-size: 20px;
+                font-family: 'Oswald', monospace;
+            }
+            #myTable {
+                font-size: 17px;
+                font-family: cursive;
+            }
+		</style>
     </head>
         <body>
 
             <div class="container">
                 <h2>List of Books</h2>
-
-                    <table class="table table-bordered">
-                        <thead>
+                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                    <br>
+                    <table class="table table-bordered table-striped">
+                        <thead id="myThead">
                             <tr>
-                                <td>Book Name</td>
-                                <td>Author Name</td>
-                                <td>Category</td>
-                                <td>Genre</td>
+                                <td><mark><b>Book Name</b></mark></td>
+                                <td><mark><b>Author Name</b></mark></td>
+                                <td><mark><b>Category</b></mark></td>
+                                <td><mark><b>Genre</b></mark></td>
                             </tr>
                         </thead>
 
@@ -44,7 +58,7 @@ while(rs.next())
 
 %>
     
-                        <tbody>
+                        <tbody id="myTable">
                             <tr>
                             <td><%=rs.getString("book_name") %></td>
                             <td><%=rs.getString("author_name") %></td>
@@ -69,6 +83,20 @@ catch(Exception e)
 
 
 %>  
+        <script>
+            $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+        </script>
+        
+        
+        
+        
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
