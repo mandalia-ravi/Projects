@@ -4,8 +4,6 @@
 <%@page import="java.io.*,java.util.*, javax.servlet.*"%>
 <%@page import="org.json.simple.JSONObject"%>
 
-<%@include file="login.html"%>
-
 <!doctype html>
 <html>
     <head>
@@ -48,8 +46,8 @@
    %>
     <div class="container" onclick="Login">
         <div class="alert alert-danger alert-dismissible" fade in>
-            <a href="login.jsp" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Danger!</strong> Invalid Email id or Password, try again!
+            <a href="login.html" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Invalid Email id or Password, try again!</strong>
         </div>
     </div>
     <%
