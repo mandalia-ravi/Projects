@@ -4,11 +4,7 @@
 <%@page import="java.io.*,java.util.*, javax.servlet.*"%>
 <%@page import="org.json.simple.JSONObject"%>
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 2291c6b507d5150ecdac48cd565eadcaed681cfa
 <!doctype html>
 <html>
     <head>
@@ -47,7 +43,6 @@
         response.sendRedirect("welcome.html");
         }
         else {
-<<<<<<< HEAD
          //out.println("Invalid password 
    %>	
 			
@@ -55,16 +50,6 @@
 				alert ("Wrong Username or password!Please try again");
 				window.location='login.html';
 			</script>
-=======
-         //out.println("Invalid password <a href='login.jsp'>try again</a>");
-   %>
-    <div class="container" onclick="Login">
-        <div class="alert alert-danger alert-dismissible" fade in>
-            <a href="login.html" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Invalid Email id or Password, try again!</strong>
-        </div>
-    </div>
->>>>>>> 2291c6b507d5150ecdac48cd565eadcaed681cfa
     <%
        }
    }
@@ -75,5 +60,6 @@
     }    
 
 %>	
+		
     </body>
 </html>
