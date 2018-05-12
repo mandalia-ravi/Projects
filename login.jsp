@@ -4,7 +4,7 @@
 <%@page import="java.io.*,java.util.*, javax.servlet.*"%>
 <%@page import="org.json.simple.JSONObject"%>
 
-<%@include file="login.html"%>
+
 
 <!doctype html>
 <html>
@@ -39,19 +39,18 @@
 		
 		if (rs.next()) {
         //session.setAttribute("userid", userid);
-        //out.println("welcome " + email);
+        out.println("welcome " + email);
         //out.println("<a href='logout.jsp'>Log out</a>");
         response.sendRedirect("welcome.html");
         }
         else {
-         //out.println("Invalid password <a href='login.jsp'>try again</a>");
-   %>
-    <div class="container" onclick="Login">
-        <div class="alert alert-danger alert-dismissible" fade in>
-            <a href="login.jsp" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Danger!</strong> Invalid Email id or Password, try again!
-        </div>
-    </div>
+         //out.println("Invalid password 
+   %>	
+			
+				<script>	
+				alert ("Wrong Username or password!Please try again");
+				window.location='login.html';
+			</script>
     <%
        }
    }
